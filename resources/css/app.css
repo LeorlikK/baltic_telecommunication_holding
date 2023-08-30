@@ -1,0 +1,67 @@
+body {
+    background-color: #374050;
+}
+.body-index {
+    background-color: #f2f6fa;
+}
+ul, li {
+    list-style: none;
+}
+a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: inherit; /* Наследуем цвет текста от родительского элемента */
+}
+input {
+    width: 70%;
+    height: 50px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    margin-top: 1%;
+}
+.navbar {
+    background-color: #374050;
+    padding: 20px 30px;
+    font-family: "Roboto", sans-serif;
+    position: fixed;
+    left: 0;
+    box-sizing: border-box;
+    width: 10%;
+    min-height: 100%;
+}
+.btn {
+    background-color: #0fc5ff;
+    text-decoration: none;
+    outline: none;
+    width: 10%;
+    height: 45px;
+    color: white;
+}
+.btn:hover {
+    background-color: black;
+}
+.btn:active {
+    transform: scale(1.1);
+    transition: 0.3s linear;
+}
+
+.table {
+    margin-left: 10%;
+    width: 50%;
+}
+.content {
+    background-color: #374050;
+    margin: 1% 1%;
+}
+.main-text {
+    color: white;
+    font-size: 30px;
+}
+p.name {
+    color: white;
+    font-size: 30px;
+}
+
+
+
+

@@ -1,0 +1,37 @@
+version: '3'
+services:
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./:/var/www/
+      - ./_docker/nginx/conf.d/:/etc/nginx/conf.d/
+    ports:
+      - "8077:80"
+    container_name: baltic_nginx
+    depends_on:
+      - app
+
+  app:
+    build:
+      context: .
+      dockerfile: _docker/app/Dockerfile
+    volumes:
+      - ./:/var/www
+    container_name: baltic_app
+    depends_on:
+      - bd
+
+  bd:
+    image: postgres:15.0
+    restart: always
+    volumes:
+      - ./tmp/db/postgres:/var/lib/postgres
+    environment:
+      POSTGRES_DB: baltic
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_INITDB_ARGS: '--encoding=UTF-8'
+    ports:
+      - "5432:5432"
+    container_name: baltic_bd
