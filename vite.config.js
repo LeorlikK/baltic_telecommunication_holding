@@ -5,19 +5,12 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/sass/app.scss',
+                // 'resources/sass/app.scss',
                 'resources/css/app.css',
+                'resources/css/reset.css',
                 'resources/js/app.js',
             ],
             refresh: true,
         }),
     ],
-    build: {
-        rollupOptions: {
-            // Разрешить динамический импорт модулей
-            output: {
-                manualChunks: undefined, // Убрать это ограничение
-            },
-        },
-    },
 });

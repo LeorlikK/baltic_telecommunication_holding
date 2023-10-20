@@ -1,67 +1,188 @@
 body {
-    background-color: #374050;
-}
-.body-index {
-    background-color: #f2f6fa;
-}
-ul, li {
-    list-style: none;
-}
-a {
-    text-decoration: none; /* Убираем подчеркивание */
-    color: inherit; /* Наследуем цвет текста от родительского элемента */
-}
-input {
-    width: 70%;
-    height: 50px;
-    border-radius: 10px;
-    outline: none;
-    border: none;
-    margin-top: 1%;
+    width: 1440px;
+    height: 1080px;
 }
 .navbar {
+    width: 181px;
+    height: 1080px;
     background-color: #374050;
-    padding: 20px 30px;
-    font-family: "Roboto", sans-serif;
+    color: #FFFFFF;
     position: fixed;
-    left: 0;
-    box-sizing: border-box;
-    width: 10%;
-    min-height: 100%;
 }
-.btn {
-    background-color: #0fc5ff;
-    text-decoration: none;
-    outline: none;
-    width: 10%;
-    height: 45px;
-    color: white;
-}
-.btn:hover {
-    background-color: black;
-}
-.btn:active {
-    transform: scale(1.1);
-    transition: 0.3s linear;
-}
-
-.table {
-    margin-left: 10%;
-    width: 50%;
+.navbar ul {
+    position: absolute;
+    width: 57px;
+    height: 11px;
+    top: 72px;
+    left: 33px;
 }
 .content {
+    box-sizing: border-box;
+    margin-left: 181px;
+    font-family: Roboto, serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 11px;
+    z-index: 0;
+}
+.red-line {
+    width: 60px;
+    height: 3px;
+    background-color: #ED1C24;
+    position: absolute;
+    top: 56px;
+    left: 17px;
+}
+.lala {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 59px;
+    position: relative;
+    font-family: Roboto, serif;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 11px;
+}
+.product p {
+    text-transform: uppercase;
+    color: #ED1C24;
+    position: absolute;
+    top: 25px;
+    left:16px;
+}
+.name p{
+    position: absolute;
+    top: 25px;
+    left: calc(1287px - 181px);
+    width: 123px;
+    color: #A6AFB8;
+}
+.lala2 {
+    display: grid;
+    grid-template-columns: 631px 50%;
+    background-color: #F2F6FA;
+    /*height: 1080px;*/
+}
+.add-button {
+    position: relative;
+    z-index: 0;
+}
+.add-button > button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 136px;
+    height: 30px;
+    border: none;
+    border-radius: 6px;
+    background-color: #0FC5FF;
+}
+.add-button a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.table th{
+    font-size: 9px;
+    color: #6E6E6F;
+    text-align: center;
+    vertical-align: middle;
+}
+.table thead{
+    height: 30px;
+}
+.table td {
+    text-align: center;
+    vertical-align: middle;
+}
+.table tbody {
+    height: 30px;
+    border: 1px solid #C4C4C4;
+    background-color: #FFFFFF;
+}
+.add-product {
+    position: absolute;
+    width: 100%;
+    min-height: 387px;
     background-color: #374050;
-    margin: 1% 1%;
+    z-index: 1;
+    visibility: hidden
 }
-.main-text {
-    color: white;
-    font-size: 30px;
+.add-product > div {
+    position: absolute;
+    top: 27px;
+    left: 12px;
 }
-p.name {
-    color: white;
-    font-size: 30px;
+.modal-add {
+    color: #FFF;
 }
-
-
+.modal-add > p {
+    font-family: Roboto sans-serif;
+    font-size: 20px;
+    color: #FFF;
+}
+.modal-add div:nth-child(2) label {
+    position: absolute;
+    top: 68px;
+    left: 12px;
+}
+.modal-add div:nth-child(2) input {
+    position: absolute;
+    top: 87px;
+    left: 12px;
+    width: 472px;
+    height: 30px;
+    border-radius: 5px;
+}
+.modal-add div:nth-child(3) label {
+    position: absolute;
+    top: 130px;
+    left: 12px;
+}
+.modal-add div:nth-child(3) input {
+    position: absolute;
+    top: 149px;
+    left: 12px;
+    width: 472px;
+    height: 30px;
+    border-radius: 5px;
+}
+.modal-add div:nth-child(4) label {
+    position: absolute;
+    top: 192px;
+    left: 12px;
+}
+.modal-add div:nth-child(4) select {
+    position: absolute;
+    top: 211px;
+    left: 12px;
+    width: 472px;
+    height: 30px;
+    border-radius: 5px;
+}
+.modal-add form > p {
+    position: absolute;
+    top: 254px;
+    left: 12px;
+    font-size: 14px;
+}
+.atr {
+    position: absolute;
+    top: 283px;
+    left: 11px;
+}
+.atr p {
+    font-size: 9px;
+    font-weight: 400;
+    color: #0FC5FF;
+}
+.atr button {
+    margin-top: 20px;
+    width: 139px;
+    height: 30px;
+    border-radius: 5px;
+    color: #FFF;
+    background-color: #0FC5FF;
+    border: none;
+}
 
 

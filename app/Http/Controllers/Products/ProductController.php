@@ -6,16 +6,19 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductCreateRequest;
 use App\Http\Requests\Product\ProductUpdateRequest;
 use App\Models\Product;
-use App\Notifications\CreatedProductMailNotification;
-use Illuminate\Http\JsonResponse;
+use App\Services\ProductService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\View\View;
 
 class ProductController extends Controller
 {
+    private ProductService $service;
+
+    public function __construct(ProductService $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -45,15 +48,8 @@ class ProductController extends Controller
         $name = $request->input('name');
         $status = $request->input('selectStatus') === 'true' ? 'available' : 'unavailable';
 
-        $attributes = [];
-        $attributesName = $request->input('attributes_name');
-        $attributesValue = $request->input('attributes_value');
-        if ($attributesName && $attributesValue){
-            foreach (array_combine($attributesName, $attributesValue) as $key => $value) {
-                if ($key) $attributes[$key] = $value;
-            }
-        }
-        $attributes = empty($attributes) ? null : $attributes;
+        $attributes = $this->service->deleteNullValueAttributes($request->input('attributes_name'),
+            $request->input('attributes_value'));
 
         $product = Product::create([
             'article' => $article,
@@ -91,12 +87,19 @@ class ProductController extends Controller
     {
         $request->validated();
 
+        $article = $request->input('article');
+        $name = $request->input('name');
+        $status = $request->input('selectStatus') === 'true' ? 'available' : 'unavailable';
+
+        $attributes = $this->service->deleteNullValueAttributes($request->input('attributes_name'),
+            $request->input('attributes_value'));
+
         $product->update([
-            'name' => $request->input('name'),
-            'article' => $request->input('article'),
-            'data' => ['size' => $request->input('size'), 'color' => $request->input('color')],
+            'name' => $name,
+            'article' => $article,
+            'status' => $status,
+            'data' => $attributes,
         ]);
-        $product->refresh();
 
         return redirect()->route('product.show', ['product' => $product->id]);
     }

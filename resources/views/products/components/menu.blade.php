@@ -1,5 +1,5 @@
 <nav class="navbar">
     <ul>
-        <li><a>Продукты</a></li>
+        <li class="menu-li"><a>Продукты</a></li>
     </ul>
 </nav>
